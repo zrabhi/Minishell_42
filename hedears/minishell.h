@@ -8,7 +8,7 @@
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-# include "../libft/libft.h"
+# include "../LIBFT/libft.h"
 # include <stdbool.h>
 # include <stdlib.h>
 //------------- typedefs --------------------------------------------------

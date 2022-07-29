@@ -1,10 +1,11 @@
 #include "../hedears/minishell.h"
-#include "../libft/libft.h"
+#include "../LIBFT/libft.h"
 
 void    ft_shell(char **av)
 {
     char   *path;
     t_cmd *cmd;
+    char *line;
     (void)av;
     cmd = malloc(sizeof(t_cmd));
     if(!cmd)
@@ -22,7 +23,7 @@ void    ft_shell(char **av)
             printf("function is working\n");
         else
             printf("function  is not working\n");
-        line = double_quotes_check(path, cmd);
+        line = double_quotes_check(path);
         if (!line)
             {
                 printf("SYNTAX ERROR\n");
