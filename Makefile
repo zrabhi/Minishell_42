@@ -13,7 +13,7 @@ YELLOW := \033[0;33m
 
 draw = draw
 HEADER_DIR = hedears
-LIBFT_DIR = libft
+LIBFT_DIR = LIBFT
 LIBFT = $(LIBFT_DIR)/libft.a
 SRC_DIR = src
 PARSING_DIR = $(SRC_DIR)/parsing
