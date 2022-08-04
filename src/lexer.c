@@ -7,10 +7,13 @@ int  ft_skip_space(char d)
         return(1);
     return(0);
 }
+
+
 /** satrting to check double_quotes_in echo cmd
  * still need to optimaze it more
  * it only workd in this case ("your_msg")
  * */
+ 
 /**
  *  
  * check if the last caractere == to '"", if its not, you should display (quotes>) and the readline will waits for user to enter the last qoutes.
@@ -49,37 +52,27 @@ char *double_quotes_check(char *line)
     printf("in double_quotes_func\n");
     int i;
     int j;
-    int check;
-    // t_cmd *cmd;
     char *str;
     
     i = 0;
     j = 0;
-    check = 0;
-    // cmd->char_pointer == 0;
+
     str = ft_strdup("");
     while (line[i])
     {
         printf("in first_loop\n");
-        check++; 
         if (line[i] == '\"' && line[i - 1] == ' ')
         {
-            i++;
-            printf("check : %d\n", check);
-            // cmd->char_pointer++;        
+            i++;    
             while (line[i] != '\"' )
             {
                 printf("in double_quotes_loop\n");
                 str[j] = line[i];
                 j++;
                 i++;
-                if (line[i] == '\0')
-                    return(NULL);
             }
             str[i] = '\0';
         }
-        if (line[i] == '\"')
-                check ++;
         i++;
     }
     return (str);

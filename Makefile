@@ -44,7 +44,7 @@ all : $(NAME)
 	@echo "$(RED)"
 	@cat $(draw)/minishell-art.ans
 	@echo""
-	@echo "                				$(YELLOW)By zrabhi$(YELLOW)                        "
+	@echo "                				$(YELLOW)By zrabhi && iayni $(YELLOW)                        "
 
 $(NAME) : $(OBJ) $(main) $(HEADER) $(LIBFT)
 	@echo "\n"

@@ -15,10 +15,61 @@ int check_user_input(char d, t_tokens type)
     else if (d == 36)
         return (type = DOLLAR);
     else{
-        printf("\033[0;31m UNXPECTED TOKEN\n");
+        // printf("\033[0;31m UNXPECTED TOKEN\n");
         return(11);
     }
 }
+
+// im going to store a linked  
+char    *line_check(char *path)
+{   
+    int i;
+    char *str = NULL;
+
+    i = 0;
+
+    // str = ft_strdup("");
+    if (!path)   
+        return( NULL);
+    while (path[i] && path[i] != ' ')
+            i++;
+    if (path[i] == ' ')
+    {
+        i = 0;
+        str = malloc(sizeof(char) * (i + 1));
+        if (!str)
+            return (NULL);
+        while (path[i] != ' ')
+        {
+            str[i] = path[i];
+            i++;
+        }
+        str[i] = '\0';
+    }   
+    // if (path[i] == ' ' )
+    //     str = ft_strdup(path);
+    return (str);
+}
+
+
+
+
+
+
+
+// t_cmd *tokanization(char *line)
+// {
+//     int i;
+//     char *str;
+//     i = 0;
+
+//     str = line;
+//     while (str[i])
+//     {
+//         if (check_user_input)
+
+//     }
+// }
 
 // int  ft_skip_space(char d)
 // {
@@ -26,34 +77,3 @@ int check_user_input(char d, t_tokens type)
 //         return(1);
 //     return(0);
 // }
-
-// int ft_pipe_check(char *line, t_tokens type)
-// {
-//     printf("in pipe_check : \n");
-//     int i;
-//     char *cmd;
-//     int j; 
-    
-//     i = 0;
-//     j = 0;
-//     while (line[i])
-//     {
-//         if (check_user_input(line[i], type) == PIPE)
-//         { 
-//             type = PIPE;
-//             cmd = ft_substr(line, 0, i);
-//             printf("\n%s[WORD]", cmd);
-//             printf("\n PIPE [|]\n");
-//             i++;
-//         }       
-//         else if(check_user_input(line[i], type) == L_DERECTION)
-//         {
-//             type = L_DERECTION;
-//             printf("\n L_DERECTION---->[<]\n");
-//             i++;
-//         }
-//         i++;
-//     }
-//     return(0);
-// }
-

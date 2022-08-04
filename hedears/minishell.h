@@ -34,10 +34,10 @@ typedef enum s_tokens{
 
 typedef struct s_cmd
 {
-    char **cmdline;
-    int char_pointer;    
+    char *cmdline;
+    // int char_pointer;    
     t_tokens type;
-    char quote;
+    struct s_cmd *next;
 }   t_cmd;
 
 typedef struct s_data
@@ -62,6 +62,7 @@ void    ft_shell(char **av);
 t_cmd *pipe_parse(char *s, t_cmd *cmd);
 char *double_quotes_check(char *line);
 bool number_of_quotes(char *line);
+char    *line_check(char *path);
 
 
 #endif
