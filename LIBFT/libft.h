@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zrabhi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: zakaria <zakaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:25:33 by zrabhi            #+#    #+#             */
-/*   Updated: 2021/11/28 11:23:10 by zrabhi           ###   ########.fr       */
+/*   Updated: 2022/08/11 00:18:16 by zakaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <string.h>
 # include <unistd.h>
 
+
+
+int     ft_strcmp(const char *s1, const char *s2);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isascii(int c);

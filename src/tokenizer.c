@@ -7,17 +7,32 @@ int check_user_input(char d, t_tokens type)
     else if (d == 34)
         return(type = D_QUOTES);
     else if (d == 39)
-        return(type = QUOTES);
+        return(type = S_QUOTES);
     else if (d == 60)
         return (type = L_DERECTION);
     else if (d == 62)
         return(type = R_DERECTION);
     else if (d == 36)
         return (type = DOLLAR);
-    else{
-        // printf("\033[0;31m UNXPECTED TOKEN\n");
-        return(11);
-    }
+    return(11);
+
+}
+
+
+void arg_type(t_cmd *cmd)
+{
+    if (ft_strcmp(cmd->str, "") == 0)
+        cmd->type = EMPTY;
+   else if (ft_strcmp(cmd->str, " ") == 0)
+        cmd->type = SPACE;
+    else if (ft_strcmp(cmd->str, "|") == 0)
+        cmd->type = PIPE;
+    else if(ft_strcmp(cmd->str, "\"") == 0)
+        cmd->type = D_QUOTES;
+    else if(ft_strcmp(cmd->str, "\'") == 0)
+        cmd->type =S_QUOTES;
+    else if(ft_strcmp(cmd->str, ">>") == 0)
+        cmd->type = APPEND;    
 }
 
 // im going to store a linked  

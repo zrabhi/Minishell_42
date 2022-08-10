@@ -11,7 +11,21 @@
 # include "../LIBFT/libft.h"
 # include <stdbool.h>
 # include <stdlib.h>
+
 //------------- typedefs --------------------------------------------------
+
+
+
+# define STDIN 0
+# define STDOUT 1
+# define STDERR 2
+
+# define ERROR 1
+# define SUCCESS 0
+
+
+
+//---------------------------structs----------------------------------------
 
 typedef struct s_list
 {
@@ -21,8 +35,10 @@ typedef struct s_list
 } t_list;
 
 typedef enum s_tokens{
-    QUOTES,
+    EMPTY,
+    S_QUOTES,
     D_QUOTES,
+    APPEND,
     R_DERECTION,
     L_DERECTION,
     D_R_DERECTION,
@@ -34,8 +50,7 @@ typedef enum s_tokens{
 
 typedef struct s_cmd
 {
-    char *cmdline;
-    // int char_pointer;    
+    char *str;
     t_tokens type;
     struct s_cmd *next;
 }   t_cmd;

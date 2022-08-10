@@ -11,8 +11,8 @@ void    ft_shell(char **av)
     cmd = malloc(sizeof(t_cmd));
     if(!cmd)
         return ((void)NULL);
-    t_tokens type;
-    type = WORD;
+    // t_tokens type;
+    // type = WORD;
     while (1)
     {
         path = readline("Minishell$ ");

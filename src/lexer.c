@@ -86,10 +86,10 @@ int ft_pipe_check(char *line, t_tokens type)
 {
     int i;
     char *cmd;
-    int j; 
+    // int j; 
     
     i = 0;
-    j = 0;
+    // j = 0;
     printf("%c\n", line[0]);
     while (line[i])
     {
