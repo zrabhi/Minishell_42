@@ -1,3 +1,5 @@
+# $(GREEN)$(shell basename $<)$(GREEN
+
 ##############################colors####################################################################
 RED   := \033[0;31m
 WHITE := \033[0;37m
@@ -18,14 +20,14 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRC_DIR = src
 PARSING_DIR = $(SRC_DIR)/parsing
 
-SRC = 	$(SRC_DIR)/ft_shell.c $(SRC_DIR)/creat_lst.c $(SRC_DIR)/tokenizer.c $(SRC_DIR)/parser.c $(SRC_DIR)/lexer.c
+SRC = 	$(SRC_DIR)/ft_shell.c $(SRC_DIR)/creat_lst.c $(SRC_DIR)/tokenizer.c $(SRC_DIR)/parser.c $(SRC_DIR)/lexer.c $(SRC_DIR)/cmd_lst.c
 main = 	$(SRC_DIR)/main.c
 OBJ	= 	$(SRC:.c=.o)
 CC = 	gcc
- GCCFLAGS = -Wall -Wextra -Werror \
-         	-I $(shell brew --prefix readline)/include \
-     		-L $(shell brew --prefix readline)/lib -lreadline \
-        	-L $(shell brew --prefix readline)/lib -lhistory -g
+ GCCFLAGS = -Wall -Wextra -Werror -lreadline -g
+         	#-I $(shell brew --prefix readline)/include \
+     		#-L $(shell brew --prefix readline)/lib -lreadline \
+        	#-L $(shell brew --prefix readline)/lib -lhistory -g
 
 ###################################This flag includes readline && history library##########################
 
@@ -65,7 +67,7 @@ $(LIBFT) : $(shell find $(LIBFT_DIR) -name "*.c" -type f)
 ######################################################################################################################
 
 %.o: %.c	
-	@echo "$(YELLOW)Compiling    $(GREEN)$(shell basename $<)$(GREEN)"
+	@echo "$(YELLOW)Compiling    "
 	@sleep 0.2
 	@$(CC) $(GCCFLAG) -c $< -o $@   
 

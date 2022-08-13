@@ -5,21 +5,23 @@ void    ft_shell(char **av)
 {
     char   *path;
     t_cmd *cmd;
-    char *line;
+    char *line= NULL;
     
     (void)av;
     cmd = malloc(sizeof(t_cmd));
     if(!cmd)
         return ((void)NULL);
-    // t_tokens type;
-    // type = WORD;
+    t_tokens type;
+    type = WORD;
     while (1)
     {
         path = readline("Minishell$ ");
-        line = line_check(path);
+        cmd  = get_str(path, type, cmd);
+        print_lst(cmd);
+        // line = line_check(path);
         // if (!line)
         //     return(NULL);
-        printf("command : %s\n", line);
+        // printf("command : %s\n", line);
         // // ft_pipe_check(path, type);
         // // printf("%s\n", path);
         // if(path)

@@ -4,6 +4,8 @@ int check_user_input(char d, t_tokens type)
 {
    if (d == 124)
        return (type = PIPE);
+    if (d == 32)
+        return(type == SPC);
     else if (d == 34)
         return(type = D_QUOTES);
     else if (d == 39)
@@ -24,7 +26,7 @@ void arg_type(t_cmd *cmd)
     if (ft_strcmp(cmd->str, "") == 0)
         cmd->type = EMPTY;
    else if (ft_strcmp(cmd->str, " ") == 0)
-        cmd->type = SPACE;
+        cmd->type = SPC;
     else if (ft_strcmp(cmd->str, "|") == 0)
         cmd->type = PIPE;
     else if(ft_strcmp(cmd->str, "\"") == 0)
@@ -34,8 +36,46 @@ void arg_type(t_cmd *cmd)
     else if(ft_strcmp(cmd->str, ">>") == 0)
         cmd->type = APPEND;    
 }
+  
+t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
+{
+    int     i;
+    int     j;
+    char    *line;
 
-// im going to store a linked  
+    cmd = NULL;
+    i = -1;
+    j = 0;
+    while (str[++i])
+    {
+         line = ft_strdup("");
+        line[j++] = str[i];
+        if (check_user_input(str[i], token) && check_user_input(str[i],token) != 11)
+        {
+            cmd = cmd_list(line, token);
+            j = 0;
+            i = 0;
+        }
+    }
+    return (cmd);
+}
+
+void    token_args(t_cmd *cmd)
+{
+    t_cmd *tmp;
+
+    tmp = cmd;
+    while(tmp)
+    {
+        arg_type(tmp);
+        tmp = tmp->next;
+    }
+    print_tokens(cmd);
+}
+
+
+
+
 char    *line_check(char *path)
 {   
     int i;

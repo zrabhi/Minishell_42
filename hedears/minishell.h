@@ -35,6 +35,7 @@ typedef struct s_list
 } t_list;
 
 typedef enum s_tokens{
+    SPC,
     EMPTY,
     S_QUOTES,
     D_QUOTES,
@@ -78,6 +79,14 @@ t_cmd *pipe_parse(char *s, t_cmd *cmd);
 char *double_quotes_check(char *line);
 bool number_of_quotes(char *line);
 char    *line_check(char *path);
+t_cmd *cmd_list(char *str, t_tokens token);
+t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd);
 
+
+
+
+//---------------- print fucntions------------------------------------------
+void    print_lst(t_cmd *cmd);
+void    print_tokens(t_cmd *cmd);
 
 #endif

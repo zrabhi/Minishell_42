@@ -1,3 +1,6 @@
+ #$(GREEN)$(shell basename $<)$(GREEN)
+
+
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -34,7 +37,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
 %.o: %.c
-	@echo "$(YELLOW)Compiling    $(GREEN)$(shell basename $<)$(GREEN)"
+#	@echo "$(YELLOW)Compiling   "
 	@sleep 0.2
 	@$(CC) $(GCC_FLAGS) -c $<
 clean:
