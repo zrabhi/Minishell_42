@@ -17,7 +17,10 @@ void    ft_shell(char **av)
     {
         path = readline("Minishell$ ");
         cmd  = get_str(path, type, cmd);
-        print_lst(cmd);
+        if(cmd)
+            printf("NULL\n");
+        // print_lst(tmp);
+        // print_tokens(tmp);
         // line = line_check(path);
         // if (!line)
         //     return(NULL);

@@ -16,8 +16,7 @@ int check_user_input(char d, t_tokens type)
         return(type = R_DERECTION);
     else if (d == 36)
         return (type = DOLLAR);
-    return(11);
-
+    return(0);
 }
 
 
@@ -46,17 +45,17 @@ t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
     cmd = NULL;
     i = -1;
     j = 0;
+        line = ft_strdup("");
     while (str[++i])
     {
-         line = ft_strdup("");
         line[j++] = str[i];
-        if (check_user_input(str[i], token) && check_user_input(str[i],token) != 11)
+        if (check_user_input(str[i], token))
         {
-            cmd = cmd_list(line, token);
+            cmd = cmd_list(line, token, &cmd);
             j = 0;
-            i = 0;
         }
     }
+    // print_lst(cmd);
     return (cmd);
 }
 
@@ -72,9 +71,6 @@ void    token_args(t_cmd *cmd)
     }
     print_tokens(cmd);
 }
-
-
-
 
 char    *line_check(char *path)
 {   

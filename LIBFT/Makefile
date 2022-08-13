@@ -38,7 +38,6 @@ $(NAME): $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
 %.o: %.c
 #	@echo "$(YELLOW)Compiling   "
-	@sleep 0.2
 	@$(CC) $(GCC_FLAGS) -c $<
 clean:
 	@rm -f $(OBJ)

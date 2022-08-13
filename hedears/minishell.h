@@ -35,6 +35,7 @@ typedef struct s_list
 } t_list;
 
 typedef enum s_tokens{
+    WORD,
     SPC,
     EMPTY,
     S_QUOTES,
@@ -46,7 +47,6 @@ typedef enum s_tokens{
     D_L_DERECTION,
     PIPE,
     DOLLAR,
-    WORD,
 } t_tokens;
 
 typedef struct s_cmd
@@ -79,7 +79,7 @@ t_cmd *pipe_parse(char *s, t_cmd *cmd);
 char *double_quotes_check(char *line);
 bool number_of_quotes(char *line);
 char    *line_check(char *path);
-t_cmd *cmd_list(char *str, t_tokens token);
+t_cmd *cmd_list(char *str, t_tokens token, t_cmd **cmd);
 t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd);
 
 
