@@ -22,27 +22,27 @@
 // }
 
 
-t_cmd *cmd_list(char *str, t_tokens token, t_cmd **cmd)
+t_cmd *cmd_list(char *str, t_tokens token)
 {
     t_cmd *new_node;
+    t_cmd *cmd = NULL;
     t_cmd *tmp;
 
     new_node = malloc(sizeof(t_cmd));
     if(!new_node)
-        return (NULL);
-    tmp = *cmd;
+        return(NULL) ;
     new_node->str = str;
     new_node->type = token;
     new_node->next = NULL;
-    if (*cmd)
-    {
-        *cmd = new_node;
-        return(*cmd);
-    } 
-    while(tmp->next)
-        tmp = tmp->next;
-    tmp->next = new_node;
-    return (tmp);
+    if(!cmd)
+        cmd = new_node;
+    else{
+            tmp = cmd;
+            while(tmp->next)
+                tmp = tmp->next;
+            tmp->next = new_node; 
+        }
+    return (cmd);
 }
 
 

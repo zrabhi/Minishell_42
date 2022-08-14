@@ -79,7 +79,7 @@ t_cmd *pipe_parse(char *s, t_cmd *cmd);
 char *double_quotes_check(char *line);
 bool number_of_quotes(char *line);
 char    *line_check(char *path);
-t_cmd *cmd_list(char *str, t_tokens token, t_cmd **cmd);
+t_cmd *cmd_list(char *str, t_tokens token);
 t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd);
 
 

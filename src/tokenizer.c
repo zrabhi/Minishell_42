@@ -51,7 +51,7 @@ t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
         line[j++] = str[i];
         if (check_user_input(str[i], token))
         {
-            cmd = cmd_list(line, token, &cmd);
+           cmd = cmd_list(line, token);
             j = 0;
         }
     }
