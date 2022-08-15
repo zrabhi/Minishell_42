@@ -17,7 +17,7 @@ void    ft_shell(char **av)
     {
         path = readline("Minishell$ ");
         cmd  = get_str(path, type, cmd);
-        if(cmd)
+        // if(cmd)
             print_lst(cmd);
         // print_lst(tmp);
         // print_tokens(tmp);

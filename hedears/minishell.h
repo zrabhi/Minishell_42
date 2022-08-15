@@ -69,20 +69,18 @@ typedef struct s_data
 //---------------- functions --------------------------------------------
 
 t_list *creat_node(char *content);
-int ft_pipe_check(char *line, t_tokens type);
+int     ft_pipe_check(char *line, t_tokens type);
 int     check_user_input(char d, t_tokens type);
-int check_user_input(char d, t_tokens type);
+int     check_user_input(char d, t_tokens type);
 void    ft_creat_lst(t_data **data, t_list *lst);
 bool    ft_check_input(char *input);
 void    ft_shell(char **av);
-t_cmd *pipe_parse(char *s, t_cmd *cmd);
-char *double_quotes_check(char *line);
-bool number_of_quotes(char *line);
+t_cmd   *pipe_parse(char *s, t_cmd *cmd);
+char    *double_quotes_check(char *line);
+bool    number_of_quotes(char *line);
 char    *line_check(char *path);
-t_cmd *cmd_list(char *str, t_tokens token);
-t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd);
-
-
+t_cmd   *cmd_list(char *str, t_tokens token);
+t_cmd   *get_str(char *str, t_tokens token, t_cmd *cmd);
 
 
 //---------------- print fucntions------------------------------------------

@@ -39,23 +39,33 @@ void arg_type(t_cmd *cmd)
 t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
 {
     int     i;
-    int     j;
+     int     j;
     char    *line;
 
     cmd = NULL;
-    i = -1;
+    i = 0;
     j = 0;
-        line = ft_strdup("");
-    while (str[++i])
+    while (str[i])
     {
-        line[j++] = str[i];
-        if (check_user_input(str[i], token))
+        if (check_user_input(str[i + 1], token))
         {
-           cmd = cmd_list(line, token);
-            j = 0;
+            line = malloc(sizeof(char) * i + 1);
+            if(!line)
+                return(NULL);
+            while(j < i)
+            {
+                line[j] = str[j];
+                j++;
+            }
+            line[j] = '\0';
+            // line = ft_strdup(&str [0 + i]);
+            cmd = cmd_list(line, token);
+            // print_lst(cmd);
+            // break ;
         }
+        i++;
+
     }
-    // print_lst(cmd);
     return (cmd);
 }
 

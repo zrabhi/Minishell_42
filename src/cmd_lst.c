@@ -54,7 +54,7 @@ void    print_lst(t_cmd *cmd)
     tmp = cmd;
     while (tmp)
     {
-        printf("%s\n", tmp->str);
+        printf("%s---->[%d]\n", tmp->str, tmp->type);
         tmp = tmp->next;
     }
     printf("\n");
