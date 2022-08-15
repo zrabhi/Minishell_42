@@ -40,7 +40,8 @@ t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
 {
     int     i;
      int     j;
-    char    *line;
+    void    *line;
+    char    *operator;
 
     cmd = NULL;
     i = 0;
@@ -49,23 +50,23 @@ t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
     {
         if (check_user_input(str[i + 1], token))
         {
-            line = malloc(sizeof(char) * i + 1);
-            if(!line)
-                return(NULL);
-            while(j < i)
-            {
-                line[j] = str[j];
-                j++;
-            }
-            line[j] = '\0';
-            // line = ft_strdup(&str [0 + i]);
-            cmd = cmd_list(line, token);
-            // print_lst(cmd);
-            // break ;
+            i++;
+            token = check_user_input(str[i], token);
+            operator = ft_substr(str, i, i + 1); 
+            line = ft_substr(str, j, i);
+            cmd = cmd_list((char *)line, token);
+            printf("line = %s\n", cmd->str);
+            printf(" line type = %d\n", cmd->type);
+            cmd = cmd_list(operator, token);
+            printf("operator = %s\n", cmd->str);
+            printf(" operator type = %d\n", cmd->type);
+            j = i;
         }
+        // else if(!check_user_input(str[i + i]))
         i++;
-
     }
+    free(operator);
+    free(line);
     return (cmd);
 }
 
