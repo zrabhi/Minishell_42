@@ -24,7 +24,7 @@ void arg_type(t_cmd *cmd)
 {
     if (ft_strcmp(cmd->str, "") == 0)
         cmd->type = EMPTY;
-   else if (ft_strcmp(cmd->str, " ") == 0)
+    else if (ft_strcmp(cmd->str, " ") == 0)
         cmd->type = SPC;
     else if (ft_strcmp(cmd->str, "|") == 0)
         cmd->type = PIPE;
@@ -35,6 +35,17 @@ void arg_type(t_cmd *cmd)
     else if(ft_strcmp(cmd->str, ">>") == 0)
         cmd->type = APPEND;    
 }
+
+void    ft_space_skip(char *line, int *i)
+{
+    if (*line == ' ' || *line == '\t' || *line == '\v' 
+        || *line == '\r')
+        (*i)++;
+}
+void increment(int *i)
+{
+    (*i)++;
+}
   
 t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
 {
@@ -43,16 +54,17 @@ t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
     void    *line;
     char    *operator;
 
-    cmd = NULL;
+    // cmd = NULL;
     i = 0;
     j = 0;
     while (str[i])
     {
+        ft_space_skip(str, &i);
         if (check_user_input(str[i + 1], token))
         {
             i++;
+            operator = ft_substr(str, i, 1); 
             token = check_user_input(str[i], token);
-            operator = ft_substr(str, i, i + 1); 
             line = ft_substr(str, j, i);
             cmd = cmd_list((char *)line, token);
             printf("line = %s\n", cmd->str);
@@ -60,7 +72,8 @@ t_cmd    *get_str(char *str, t_tokens token, t_cmd *cmd)
             cmd = cmd_list(operator, token);
             printf("operator = %s\n", cmd->str);
             printf(" operator type = %d\n", cmd->type);
-            j = i;
+            j = i + 1;
+        free(line);
         }
         // else if(!check_user_input(str[i + i]))
         i++;

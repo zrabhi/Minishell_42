@@ -17,32 +17,7 @@ void    ft_shell(char **av)
     {
         path = readline("Minishell$ ");
         cmd  = get_str(path, type, cmd);
-        // // if(cmd)
-        //     print_lst(cmd);
-        // print_lst(tmp);
-        // print_tokens(tmp);
-        // line = line_check(path);
-        // if (!line)
-        //     return(NULL);
-        // printf("command : %s\n", line);
-        // // ft_pipe_check(path, type);
-        // // printf("%s\n", path);
-        // if(path)
-        //     add_history(path);
-        // if (number_of_quotes(path))
-        //     line = double_quotes_check(path);
-        // if (!line)
-        //     {
-        //         printf("SYNTAX ERROR\n");
-        //         free(line);
-        //         free(path);
-        //         return ((void)NULL);
-        //     }
-        // else   
-        //     printf("%s\n", line);
-        // printf("%lu\n", ft_strlen(line));
-        // ft_pipe_check(path, type);
-        // printf("\n");
+        add_history(path);
         free(path);
         free(line);
         system("leaks Minishell");
