@@ -1,27 +1,5 @@
 #include "../hedears/minishell.h"
 
-
-// t_cmd *cmd_list(char *str, t_tokens token, t_cmd *cmd)
-// {
-//     t_cmd *tmp;
-
-
-//     tmp = cmd;
-//     //  while(tmp)
-//     //      tmp = tmp->next;
-//     tmp = malloc(sizeof(t_cmd));
-//     if (!cmd)
-//         return (false);
-//     tmp->str = str;
-//     tmp->type = token;
-//     tmp->next = NULL;
-//     // if(!cmd->next)
-//     //     cmd->next = tmp;
-//     // printf("%s\n", cmd->str);
-//     return (tmp);
-// }
-
-
 t_cmd *cmd_list(char *str, t_tokens token)
 {
     t_cmd *new_node;
